@@ -1,24 +1,45 @@
-//
-//  ContentView.swift
-//  ToDoList
-//
-//  Created by M-Store on 7/31/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            // Full-screen background image
+            Image("sky-8763986_1280")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                // "+" button at the top-right corner
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        // Action for the button
+                        print("Plus button tapped")
+                    }) {
+                        Image(systemName: "plus")
+                            .foregroundColor(Color.white.opacity(0.7))
+                            .font(.system(size: 74))
+                            .padding()
+                    }
+                }
+                
+                Spacer()
+                
+                // Navigation bar at the bottom
+                HStack {
+                    Spacer()
+                }
+                .padding()
+                .frame(height: 200)
+                .background(Color.white.opacity(0.7))
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
