@@ -19,7 +19,7 @@ struct ContentView: View {
                     }) {
                         Image(systemName: "plus")
                             .foregroundColor(Color.white.opacity(0.7))
-                            .font(.system(size: 74))
+                            .font(.system(size: 75))
                             .padding()
                     }
                 }
@@ -29,9 +29,17 @@ struct ContentView: View {
                 // Navigation bar at the bottom
                 HStack {
                     Spacer()
+                    
+                    // Center image in navigation bar
+                    Image("Asset 1")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 60)
+                    
+                    Spacer()
                 }
                 .padding()
-                .frame(height: 200)
+                .frame(height: 120)
                 .background(Color.white.opacity(0.7))
             }
         }
