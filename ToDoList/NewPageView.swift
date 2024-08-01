@@ -6,18 +6,18 @@ struct NewPageView: View {
     @State private var selectedTime = Date()
     @State private var taskName = ""
     @State private var repeatDays: [String: Bool] = [
-        "Sun": false, "Mon": false, "Tue": false,
-        "Wed": false, "Thu": false, "Fri": false, "Sat": false
+        "EVERY SUNDAY": false, "EVERY MONDAY": false,
+        "EVERY TUESDAY": false, "EVERY WEDNESDAY": false,
+        "EVERY THURSDAY": false, "EVERY FRIDAY": false,
+        "EVERY SATURDAY": false
     ]
     
     var body: some View {
         ZStack {
-            // Background color with Hex #E6E2DF
             Color(red: 230/255, green: 226/255, blue: 223/255)
                 .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 20) {
-                // Time Picker
                 DatePicker(
                     "Select Time",
                     selection: $selectedTime,
@@ -26,7 +26,6 @@ struct NewPageView: View {
                 .datePickerStyle(WheelDatePickerStyle())
                 .labelsHidden()
                 
-                // Task and Repeat Schedule Inputs
                 VStack(spacing: 0) {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.white)
@@ -50,25 +49,26 @@ struct NewPageView: View {
                                 
                                 Divider()
                                 
-                                HStack {
-                                    Text("Repeat Schedule")
-                                        .font(.headline)
-                                        .foregroundColor(.black)
-                                    
-                                    Spacer()
-                                    
-                                    Text(getRepeatText())
-                                        .foregroundColor(.gray)
-                                        .padding(.trailing)
+                                NavigationLink(destination: RepeatScheduleView(repeatDays: $repeatDays)) {
+                                    HStack {
+                                        Text("Repeat Schedule")
+                                            .font(.headline)
+                                            .foregroundColor(.black)
+                                        
+                                        Spacer()
+                                        
+                                        Text(getRepeatText())
+                                            .foregroundColor(.gray)
+                                            .padding(.trailing)
+                                    }
+                                    .padding(.horizontal)
+                                    .frame(height: 50)
                                 }
-                                .padding(.horizontal)
-                                .frame(height: 50)
                             }
                         )
                         .padding(.horizontal)
                 }
                 
-                // Delete Notification Button
                 Button(action: {
                     // Implement delete action here
                 }) {
@@ -97,16 +97,12 @@ struct NewPageView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("SAVE") {
                     // Implement your save logic here
-                    print("Selected time: \(selectedTime)")
-                    print("Task: \(taskName)")
-                    print("Repeat Days: \(repeatDays.filter { $0.value }.keys.joined(separator: ", "))")
                 }
                 .foregroundColor(.blue)
             }
         }
     }
     
-    // Function to format repeat days text
     private func getRepeatText() -> String {
         let selectedDays = repeatDays.filter { $0.value }.keys.sorted()
         

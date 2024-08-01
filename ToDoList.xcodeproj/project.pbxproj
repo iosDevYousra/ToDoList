@@ -12,6 +12,7 @@
 		ED093A4A2C5A6E2600B9A455 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED093A492C5A6E2600B9A455 /* Assets.xcassets */; };
 		ED093A4D2C5A6E2600B9A455 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED093A4C2C5A6E2600B9A455 /* Preview Assets.xcassets */; };
 		ED093A562C5ABE6A00B9A455 /* NewPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED093A552C5ABE6A00B9A455 /* NewPageView.swift */; };
+		ED093A582C5B6FB900B9A455 /* RepeatScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED093A572C5B6FB900B9A455 /* RepeatScheduleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		ED093A492C5A6E2600B9A455 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED093A4C2C5A6E2600B9A455 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ED093A552C5ABE6A00B9A455 /* NewPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPageView.swift; sourceTree = "<group>"; };
+		ED093A572C5B6FB900B9A455 /* RepeatScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatScheduleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				ED093A452C5A6E2400B9A455 /* ToDoListApp.swift */,
 				ED093A472C5A6E2400B9A455 /* ContentView.swift */,
 				ED093A552C5ABE6A00B9A455 /* NewPageView.swift */,
+				ED093A572C5B6FB900B9A455 /* RepeatScheduleView.swift */,
 				ED093A492C5A6E2600B9A455 /* Assets.xcassets */,
 				ED093A4B2C5A6E2600B9A455 /* Preview Content */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED093A582C5B6FB900B9A455 /* RepeatScheduleView.swift in Sources */,
 				ED093A562C5ABE6A00B9A455 /* NewPageView.swift in Sources */,
 				ED093A482C5A6E2400B9A455 /* ContentView.swift in Sources */,
 				ED093A462C5A6E2400B9A455 /* ToDoListApp.swift in Sources */,
