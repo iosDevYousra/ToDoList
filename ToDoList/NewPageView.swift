@@ -2,6 +2,7 @@ import SwiftUI
 
 struct NewPageView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Binding var tasks: [Task]
     
     @State private var selectedTime = Date()
     @State private var taskName = ""
@@ -11,6 +12,7 @@ struct NewPageView: View {
         "EVERY THURSDAY": false, "EVERY FRIDAY": false,
         "EVERY SATURDAY": false
     ]
+    @State private var isNotificationOn = true
     
     var body: some View {
         ZStack {
@@ -69,15 +71,28 @@ struct NewPageView: View {
                         .padding(.horizontal)
                 }
                 
+                Toggle(isOn: $isNotificationOn) {
+                    Text("Notification")
+                        .foregroundColor(.black)
+                }
+                .padding(.horizontal)
+                
                 Button(action: {
-                    // Implement delete action here
+                    let newTask = Task(
+                        time: selectedTime,
+                        taskName: taskName,
+                        repeatSchedule: getRepeatText(),
+                        isNotificationOn: isNotificationOn
+                    )
+                    tasks.append(newTask)
+                    presentationMode.wrappedValue.dismiss()
                 }) {
-                    Text("DELETE NOTIFICATION")
-                        .foregroundColor(.red)
+                    Text("SAVE")
+                        .foregroundColor(.white)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.white)
+                        .background(Color.blue)
                         .cornerRadius(10)
                 }
                 .padding(.horizontal)
@@ -91,12 +106,6 @@ struct NewPageView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button("CANCEL") {
                     presentationMode.wrappedValue.dismiss()
-                }
-                .foregroundColor(.blue)
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("SAVE") {
-                    // Implement your save logic here
                 }
                 .foregroundColor(.blue)
             }
@@ -117,9 +126,11 @@ struct NewPageView: View {
 }
 
 struct NewPageView_Previews: PreviewProvider {
+    @State static var tasks: [Task] = []
+    
     static var previews: some View {
         NavigationView {
-            NewPageView()
+            NewPageView(tasks: $tasks)
         }
     }
 }
