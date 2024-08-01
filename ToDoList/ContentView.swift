@@ -41,7 +41,8 @@ struct ContentView: View {
                     .background(Color.white.opacity(0.7))
                 }
             }
-            .navigationBarHidden(true) // Hides the default navigation bar
+            .navigationBarTitle("") // Hides the title
+            .navigationBarHidden(false) // Ensure navigation bar is visible for the next views
         }
     }
 }
