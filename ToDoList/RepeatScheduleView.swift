@@ -7,33 +7,24 @@ struct RepeatScheduleView: View {
     let days = ["EVERY SUNDAY", "EVERY MONDAY", "EVERY TUESDAY", "EVERY WEDNESDAY", "EVERY THURSDAY", "EVERY FRIDAY", "EVERY SATURDAY"]
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(days, id: \.self) { day in
-                    Button(action: {
-                        repeatDays[day, default: false].toggle()
-                    }) {
-                        HStack {
-                            Text(day)
-                                .foregroundColor(.black)
-                            Spacer()
-                            if repeatDays[day] == true {
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.red)
-                            }
+        List {
+            ForEach(days, id: \.self) { day in
+                Button(action: {
+                    repeatDays[day, default: false].toggle()
+                }) {
+                    HStack {
+                        Text(day)
+                            .foregroundColor(.black)
+                        Spacer()
+                        if repeatDays[day] == true {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.blue)
                         }
                     }
                 }
             }
-            .listStyle(InsetGroupedListStyle())
-            
-            // Add the icon at the bottom of the page
-            Image("Asset 1")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50, height: 50) // Adjust the size as needed
-                .padding(.bottom, 20)
         }
+        .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Repeat", displayMode: .inline)
         .navigationBarItems(trailing: Button("Done") {
             presentationMode.wrappedValue.dismiss()
