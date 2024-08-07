@@ -14,11 +14,11 @@ struct RepeatScheduleView: View {
                 }) {
                     HStack {
                         Text(day)
-                            .foregroundColor(.black)
+                            .foregroundColor(.blue)
                         Spacer()
                         if repeatDays[day] == true {
                             Image(systemName: "checkmark")
-                                .foregroundColor(.blue)
+                                .foregroundColor(.red)
                         }
                     }
                 }
