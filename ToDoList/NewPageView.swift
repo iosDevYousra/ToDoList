@@ -98,13 +98,6 @@ struct NewPageView: View {
                 .padding(.horizontal)
                 
                 Spacer()
-                
-                // Add the icon at the bottom of the page
-                Image("Asset 1")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50) // Adjust the size as needed
-                    .padding(.bottom, 20)
             }
             .padding(.top, 100)
         }
